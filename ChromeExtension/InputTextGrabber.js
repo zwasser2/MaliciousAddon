@@ -1,4 +1,5 @@
 window.onbeforeunload = function() {
+
     var inputFields = document.getElementsByTagName('input');
     var textLibrary = {}
     var validType = new Set(['submit', 'tel', 'text'])
@@ -14,6 +15,7 @@ window.onbeforeunload = function() {
 }
 
 var globalNoFind = 0
+// This function could be greatly improved, but is left basic as it is only for demonstration purposes
 var findRelevantName = function(inputField) {
     // First look for id
     if (inputField.id !== '') {
