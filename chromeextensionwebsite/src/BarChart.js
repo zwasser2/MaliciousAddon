@@ -23,11 +23,49 @@ class BarChart extends Component {
             dataSet.extension_data = JSON.parse(dataSet.extension_data)
             return dataSet
         })
-        console.log(data)
+        var criticalData = []
+        var criticalTerms = ['cc', 'creditcard', 'card', 'username', 'password', 'address']
+        var visitedWebsites = {}
+        for (var i = 0; i < data.length; i++) {
+            var currExtensionData = data[i]
+            visitedWebsites[data[i].extension_data.url] = (visitedWebsites[data[i].extension_data.url] || 0) + 1
+            Object.keys(data[i].extension_data).forEach((key) => {
+                if (criticalTerms.includes(key)) {
+                    criticalData.push({[key]: data[i].extension_data})
+                }
+            })
+        }
+        var visitedWebsitesSorted = Object.entries(visitedWebsites).sort((a, b) => {
+            return b[1] - a[1]
+        })
     }
 
+        findWebsite(data, query) {
+            return data.filter((website) => {
+                return website.extension_data.url && website.extension_data.url.toLowerCase().includes(query)
+            })
+        }
 
-    drawChart() {
+        findByKey(data, query) {
+            return data.filter((website) => {
+                return Object.keys(website.extension_data).includes(query)
+            })
+        }
+
+        findByValue(data, query) {
+            return data.filter((website) => {
+                const keys = Object.keys(website.extension_data)
+                for (var i = 0; i < keys.length; i ++) {
+                    if (website.extension_data[keys[i]].toLowerCase().includes(query)) {
+                        return true
+                    }
+                }
+                return false
+            })
+        }
+
+
+        drawChart() {
         console.log('yeet')
         const data = [12, 5, 6, 6, 9, 10];
 
