@@ -8,41 +8,8 @@ class BarChart extends Component {
             hasDrawn: false
         }
     }
-
-
-
-
-
-        findWebsite(data, query) {
-            return data.filter((website) => {
-                return website.extension_data.url && website.extension_data.url.toLowerCase().includes(query)
-            })
-        }
-
-        findByKey(data, query) {
-            return data.filter((website) => {
-                return Object.keys(website.extension_data).includes(query)
-            })
-        }
-
-        findByValue(data, query) {
-            return data.filter((website) => {
-                const keys = Object.keys(website.extension_data)
-                for (var i = 0; i < keys.length; i ++) {
-                    if (website.extension_data[keys[i]].toLowerCase().includes(query)) {
-                        return true
-                    }
-                }
-                return false
-            })
-        }
-
-
         drawChart() {
-            console.log(this)
-            console.log(this.props)
             const data = this.props.mostVisitedWebsiteList
-            console.log(data)
             const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
             const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
             //set up svg using margin conventions - we'll need plenty of room on the left for labels
@@ -77,7 +44,7 @@ class BarChart extends Component {
             //make y axis to show bar names
             var yAxis = d3.axisLeft(y)
 
-            var gy = svg.append("g")
+            svg.append("g")
                 .attr("class", "y axis")
                 .call(yAxis)
 

@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8552ed97-6adb-41c0-817e-5afb413a4606" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MaliciousBackend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MaliciousBackend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chromeextensionwebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chromeextensionwebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chromeextensionwebsite/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chromeextensionwebsite/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chromeextensionwebsite/src/BarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chromeextensionwebsite/src/BarChart.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,7 +54,8 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -84,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InputTextGrabber.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+            <state relative-caret-position="753">
+              <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -192,18 +194,19 @@
       <updated>1565661850476</updated>
       <workItem from="1565661851589" duration="8137000" />
       <workItem from="1566866731851" duration="3368000" />
-      <workItem from="1567033911740" duration="285000" />
+      <workItem from="1567033911740" duration="885000" />
+      <workItem from="1567557606267" duration="1198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11790000" />
+    <option name="totallyTimeSpent" value="13588000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.060063224" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.029504742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -252,8 +255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/InputTextGrabber.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+        <state relative-caret-position="753">
+          <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
         </state>
       </provider>
     </entry>

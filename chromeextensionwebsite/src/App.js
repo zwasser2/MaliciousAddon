@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import BarChart from './BarChart'
 
@@ -14,10 +13,9 @@ class App extends Component {
         }
     }
     loadDoc() {
-        console.log('staged')
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = () => {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
                 this.setState({data: JSON.parse(xhttp.responseText)})
                 this.parseGetData()
                 //this.drawChart()
@@ -38,7 +36,6 @@ class App extends Component {
         var criticalTerms = ['cc', 'creditcard', 'card', 'username', 'password', 'address']
         var visitedWebsites = {}
         for (var i = 0; i < this.state.data.length; i++) {
-            var currExtensionData = this.state.data[i]
             if (typeof this.state.data[i].extension_data.url === 'undefined') {
                 visitedWebsites['No Given URL'] = (visitedWebsites['No Given URL'] || 0) + 1
             } else if (this.state.data[i].extension_data.url.includes('aws.amazon')) {
@@ -73,13 +70,37 @@ class App extends Component {
         this.setState({mostVisitedWebsiteList: visitedWebsitesSorted})
         this.setState({criticalData: criticalData})
     }
+
+    findWebsite(query) {
+        return this.state.data.filter((website) => {
+            return website.extension_data.url && website.extension_data.url.toLowerCase().includes(query)
+        })
+    }
+
+    findByKey(query) {
+        return this.state.data.filter((website) => {
+            return Object.keys(website.extension_data).includes(query)
+        })
+    }
+
+    findByValue(query) {
+        return this.state.data.filter((website) => {
+            const keys = Object.keys(website.extension_data)
+            for (var i = 0; i < keys.length; i ++) {
+                if (website.extension_data[keys[i]].toLowerCase().includes(query)) {
+                    return true
+                }
+            }
+            return false
+        })
+    }
+
     render() {
         if (!this.state.hasGetRequested) {
             this.setState({hasGetRequested: true})
             this.loadDoc()
         }
         return (<div id='graphic'>
-            he<h1>{this.state.mostVisitedWebsiteList}</h1>llo
             <h1>Malicious Chrome Extension</h1>
             <h2>Purpose</h2>
             <h3>The purpose of this extension is to take a look at the potential vulnerabilities that are can be exploited by a malicious Chrome extension. To test what can be stolen, I let the Chrome Extension run in the background of my computer for about 4 days to see what could potentially be in the hands of strangers. In addition, I wanted to play around with some basic D3.JS and felt that the info I gatherered would be very suitable for it.</h3>
